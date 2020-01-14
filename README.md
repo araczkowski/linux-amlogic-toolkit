@@ -60,4 +60,13 @@ Allows to unpack and repack AMLogic Android images on Linux systems without usin
 * https://github.com/Stane1983/aml-linux-usb-burn for the flashing tool
 
 
+# Size of image
 
+./bin/unmount
+e2fsck -f output/image/system.img
+resize2fs output/image/system.img 900M
+./bin/remount
+
+
+-- to check the minimal size of image
+resize2fs -M output/image/system.img
